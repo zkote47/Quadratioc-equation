@@ -1,6 +1,8 @@
 import math
 import sys
+import matplotlib.pyplot as plt
 
+print('Введите коэффициенты a, b, c:')
 
 def equation(a, b, c) -> [float, float]:
 
@@ -30,6 +32,22 @@ def equation(a, b, c) -> [float, float]:
 
     print(answer)
 
+# я проверяю на примерах (1, 4, 3) , (1, 4, 4), (1, 4, 5)
+a, b, c = int(input()), int(input()), int(input())
+equation(a=a, b=b, c=c)
 
-# equation(int(input()), int(input()), int(input()))    # можно тестить на ручном вводе
-equation(1, 4, 5)
+# Добавила график, почему бы и нет
+Xs = []
+Ys = []
+for X in range(-10, 10+1):
+    Y = a*(X**2) + b * X + c
+    Xs.append(X)
+    Ys.append(Y)
+
+print(Xs)
+print(Ys)
+
+plt.plot(Xs, Ys, label='y=x**2')
+plt.legend()
+plt.show()
+
